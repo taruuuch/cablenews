@@ -1,0 +1,10 @@
+include ../mixins/_news.pug
+
+section
+	-for (var x = 0; x < 7; x++)
+		+news('title'+x)
+	.news-slider.owl-carousel
+		div 1
+		div 2
+		div 3
+		div 4
