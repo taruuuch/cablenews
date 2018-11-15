@@ -52,12 +52,12 @@ gulp.task('browser-sync', ['style','template','script'], function() {
 
 gulp.task('style', function () {
   return gulp.src([config.style.in])
-    .pipe(sass.sync())
-    .pipe(sourcemaps.init())
     .on('error', notify.onError({
       message: 'error: <%= error.message %>',
       title: 'sass error'
     }))
+    .pipe(sass.sync())
+    .pipe(sourcemaps.init())
     .pipe(autoprefixer({
         browsers: ['last 4 versions']
     }))

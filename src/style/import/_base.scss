@@ -5,5 +5,24 @@
 }
 
 body {
-    font: normal 1rem/100% 'Roboto', sans-serif;
+    font: $font-weight $global-font-size $font-family;
+    line-height: $global-line-height;
+}
+
+button {
+    background: transparent;
+    font: $font-weight $font-size $font-family;
+    color: $form-color;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;   
+}
+
+input {
+    border: none;
+    border-bottom: $form-border-size solid $form-border-color;
+    background: transparent;
+    padding: $form-padding;
 }
