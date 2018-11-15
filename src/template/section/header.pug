@@ -1,12 +1,13 @@
 header.header
-    .logotype
-        img.logo(src="")
-    .navigation
+    .header__logotype
+        img.logo(src="img/logo.png")
+    .header__navigation
         include ./nav.pug
-    .search
-        button
+    .header__search
+        button.open-search-form
             img.search-icon(src="/img/icon/search.svg", alt="", srcset="/img/icon/search.svg")
         form.search-form
             input#search-value(type="text", name="search-value")
             button(type="submit")
-                img.form-search(src="/img/icon/search.svg", alt="", srcset="/img/icon/search.svg")
+                img.form-search-icon(src="/img/icon/search.svg", alt="", srcset="/img/icon/search.svg")
+        

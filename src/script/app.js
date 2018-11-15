@@ -10,4 +10,9 @@
         animateIn: 'fadeIn',
         smartSpeed: 200
     });
+
+    $('.open-search-form').click(function() {
+        $('.search-form').slideToggle().show();
+        $(this).hide();
+    });
 })();
