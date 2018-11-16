@@ -1,13 +1,20 @@
-header.header
-    .header__logotype
-        img.logo(src="img/logo.png")
-    .header__navigation
-        include ./nav.pug
-    .header__search
-        button.open-search-form
-            img.search-icon(src="/img/icon/search.svg", alt="", srcset="/img/icon/search.svg")
-        form.search-form
-            input#search-value(type="text", name="search-value")
-            button(type="submit")
-                img.form-search-icon(src="/img/icon/search.svg", alt="", srcset="/img/icon/search.svg")
-        
+header.navbar
+  section.navbar-section
+    a.navbar-brand.d-flex.mr-2(href='#') 
+        img(src="img/logo.png")
+  section.navbar-section
+    a.btn.btn-link(href='/') Главная
+      a.btn.btn-link(href='#') Новости
+      .dropdown
+        a.btn.btn-link.dropdown-toggle(href='#' tabindex='0') Промышленость
+        ul.menu
+          a.btn.btn-link(href='#') Промышленость
+      a.btn.btn-link(href='#') Зеленая енергия
+      a.btn.btn-link(href='#') Финансы
+      a.btn.btn-link(href='#') Выставка
+      a.btn.btn-link(href='#') Видео
+  section.navbar-section
+    form.input-group.input-inline.search-form
+      input.form-input(type='text' placeholder='Найти...')
+      button.btn.btn-primary.input-group-btn
+        img(width="24px", src="img/icon/search.svg", alt="Найти на cablenews.com.ua", srcset="img/icon/search.svg")
