@@ -9,7 +9,7 @@
         ],
         autoplay          : true,
         autoplayHoverPause: true,
-        autoplaySpeed     : 7000,
+        autoplaySpeed     : 6000,
         animateOut        : 'fadeOut',
         animateIn         : 'fadeIn',
         smartSpeed        : 200,

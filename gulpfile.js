@@ -1,99 +1,63 @@
 'use strict';
 
-let browserSync  = require('browser-sync').create(),
-    // gulp         = require('gulp'),
-    pug          = require('gulp-pug'),
-    sass         = require('gulp-sass'),
-    cleancss     = require('gulp-clean-css'),
-    autoprefixer = require('gulp-autoprefixer'),
-    imagemin     = require('gulp-imagemin'),
-    notify       = require('gulp-notify'),
-    rename       = require('gulp-rename'),
-    del          = require('del'),
-    sourcemaps   = require('gulp-sourcemaps'),
-    uglify       = require('gulp-uglify'),
-    wait         = require('gulp-wait'),
-	reload       = browserSync.reload;
-	
-const { task, watch, src, dist } = require('gulp');
+const browserSync  = require('browser-sync').create(),
+      gulp         = require('gulp'),
+      pug          = require('gulp-pug'),
+      sass         = require('gulp-sass'),
+      cleancss     = require('gulp-clean-css'),
+      autoprefixer = require('gulp-autoprefixer'),
+      imagemin     = require('gulp-imagemin'),
+      notify       = require('gulp-notify'),
+      rename       = require('gulp-rename'),
+      del          = require('del'),
+      sourcemaps   = require('gulp-sourcemaps'),
+      uglify       = require('gulp-uglify'),
+      wait         = require('gulp-wait');
 
-let config = {
-	dist: './dist/',
-	src: './src/',
-	template: { in: './src/template/*.pug',
-		out: './dist/'
+const path = {
+	build: {
+		pug   : 'build/',
+		js    : 'build/js/',
+		style : 'build/style/',
+		image : 'build/img/',
+		font  : 'build/fonts/',
+		jslib : 'build/js/lib/',
+		csslib: 'build/style/lib/'
 	},
-	style: { in: './src/style/**/*.{sass,scss}',
-		out: './dist/style/'
-	},
-	script: { in: './src/script/app.js',
-		out: './dist/script/'
-	},
-	image: { in: './src/img/**/*.{jpg,jpeg,png,gif,svg,ico}',
-		out: './dist/img/'
-	},
-	font: { in: './src/font/**/*',
-		out: './dist/font/'
+	src: {
+		pug  : 'src/template/*.pug',
+		js   : 'src/script/app.js',
+		style: 'src/style/**/*.{sass,scss}',
+		image: 'src/img/**/*.{jpg,jpeg,png,gif,svg,ico}',
+		font : 'src/font/**/*'
 	},
 	watch: {
-		template: './src/template/**/*.pug',
-		style: './src/style/**/*.{sass,scss}'
+		pug  : 'src/template/**/*.pug',
+		js   : 'src/script/app.js',
+		style: 'src/style/**/*.{sass,scss}',
+		image: 'src/img/**/*.{jpg,jpeg,png,gif,svg,ico}',
+		font : 'src/font/**/*'
 	}
 };
 
-task('browser-sync', ['style', 'template', 'script'], function () {
+function browserSyncServer(done) {
 	browserSync.init({
 		server: {
-			baseDir: config.dist
+			baseDir: path.build.pug
 		},
 		notify: true
 	});
-});
+	done();
+}
 
-task('style', function () {
-	return src([config.style.in])
-		.pipe(wait(200))
-		.pipe(sass())
-		.on('error', notify.onError({
-				message: '\n<%= error.message %>',
-				title: 'SASS'
-			})
-		)
-		.pipe(sourcemaps.init())
-		.pipe(autoprefixer({
-			browsers: ['last 4 versions']
-		}))
-		.pipe(cleancss())
-		.pipe(rename({
-			suffix: '.min'
-		}))
-		.pipe(sourcemaps.write('.'))
-		.pipe(dest(config.style.out))
-		.pipe(
-			browserSync.reload({
-				stream: true
-			})
-		);
-});
+function reload(done) {
+	browserSync.reload();
+	done();
+}
 
-task('template', function () {
-	return src([
-			config.template.in
-		])
-		.pipe(pug({
-			pretty: true
-		}))
-		.on('error', notify.onError({
-			message: '\n<%= error.message %>',
-			title: 'TEMPLATE'
-		}))
-		.pipe(dest(config.template.out));
-});
-
-task('script', function () {
-	return src([
-			config.script.in
-		])
+function jsLoad() {
+	return gulp
+		.src([path.src.js])
 		.on('error', notify.onError({
 			message: '\n<%= error.message %>',
 			title: 'SCRIPTS'
@@ -104,79 +68,102 @@ task('script', function () {
 			suffix: '.min'
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(dest(config.script.out))
-		.pipe(
-			browserSync.reload({
-				stream: true
-			})
-		);
-});
+		.pipe(gulp.dest(path.build.js))
+		.pipe(browserSync.stream());
+}
 
-task('js-lib', function () {
-	return src([
+function sassLoad() {
+	return gulp
+		.src([path.src.style])
+		.pipe(wait(200))
+		.pipe(sass())
+		.on('error', notify.onError({
+			message: '\n<%= error.message %>',
+			title: 'SASS'
+		}))
+		.pipe(sourcemaps.init())
+		.pipe(autoprefixer({
+			browsers: ['last 4 versions']
+		}))
+		.pipe(cleancss())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(path.build.style))
+		.pipe(browserSync.stream());
+}
+
+function pugLoad() {
+	return gulp
+		.src([path.src.pug])
+		.pipe(pug({
+			pretty: true
+		}))
+		.on('error', notify.onError({
+			message: '\n<%= error.message %>',
+			title: 'TEMPLATE'
+		}))
+		.pipe(gulp.dest(path.build.pug))
+		.pipe(browserSync.stream());
+}
+
+function imageLoad() {
+	return gulp
+		.src([path.src.image])
+		.pipe(imagemin({
+			optimizationLevel: 5,
+			progressive: true,
+			interlaced: true,
+			svgoPlugins: [{
+				removeViewBox: true
+			}]
+		}))
+		.pipe(gulp.dest(path.build.image))
+		.pipe(browserSync.stream());
+}
+
+function fontLoad() {
+	return gulp
+		.src([path.src.font])
+		.pipe(gulp.dest(path.build.font))
+		.pipe(browserSync.stream());
+};
+
+function jsLibLoad() {
+	return gulp
+		.src([
 			'./node_modules/jquery/dist/jquery.min.js',
 			'./node_modules/bootstrap/dist/js/bootstrap.min.js',
 			'./node_modules/owl.carousel/dist/owl.carousel.min.js'
 		])
-		.pipe(gulp.dest(config.script.out + '/lib/'))
-		.pipe(
-			browserSync.reload({
-				stream: true
-			})
-		);
-});
+		.pipe(gulp.dest(path.build.jslib))
+		.pipe(browserSync.stream());
+}
 
-task('css-lib', function () {
-	return src([
+function cssLibLoad() {
+	return gulp
+		.src([
 			'./node_modules/bootstrap/dist/css/bootstrap.min.css',
 			'./node_modules/owl.carousel/dist/assets/owl.carousel.min.css'
 		])
-		.pipe(dest(config.style.out + '/lib/'))
-		.pipe(
-			browserSync.reload({
-				stream: true
-			})
-		);
-});
+		.pipe(gulp.dest(path.build.csslib))
+		.pipe(browserSync.stream());
+}
 
-task('image', function () {
-	return src(config.image.in)
-		.pipe(imagemin({
-			optimizationLevel: 5,
-			progressive      : true,
-			interlaced       : true,
-			svgoPlugins      : [
-				{
-					removeViewBox: true
-				}
-			]
-		}))
-		.pipe(dest(config.image.out))
-		.pipe(
-			browserSync.reload({
-				stream: true
-			})
-		);
-});
+function watcher() {
+	gulp.watch(path.watch.pug, gulp.series(pugLoad, reload));
+	gulp.watch(path.watch.style, gulp.series(sassLoad, reload));
+	gulp.watch(path.watch.js, gulp.series(jsLoad, reload));
+	gulp.watch(path.watch.image, gulp.series(imageLoad, reload));
+	gulp.watch(path.watch.font, gulp.series(fontLoad, reload));
+	gulp.watch(path.build.jslib, gulp.series(jsLibLoad, reload));
+	gulp.watch(path.build.csslib, gulp.series(cssLibLoad, reload));
+}
 
-task('font', function () {
-	return src([
-			config.font.in
-		])
-		.pipe(dest(config.font.out));
-});
+function clean() {
+	return del([path.build.pug]);
+}
 
-task('clean', function () {
-	return del.sync(config.dist);
-});
-
-task('watch', function () {
-	watch([config.watch.style], ['style']).on("change", reload)
-	watch([config.watch.template], ['template']).on("change", reload)
-	watch([config.script.in], ['script']).on("change", reload)
-	watch([config.image.in], ['image']).on("change", reload);
-});
-
-task('default', ['clean'], function () {
-	gulp.start('script', 'js-lib', 'css-lib', 'image', 'font', 'watch', 'browser-sync');
-});
+gulp.task('default', gulp.series(clean, pugLoad, jsLoad, sassLoad, jsLibLoad, cssLibLoad, imageLoad, fontLoad, browserSyncServer, watcher));
+gulp.task('build', gulp.series(clean, pugLoad, jsLoad, sassLoad, imageLoad, fontLoad));

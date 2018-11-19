@@ -1,21 +1,18 @@
 include ../../mixins/_news.pug
 
-section.topbar
-	.container
-		.columns.col-gapless
-			.slider.column.col-9.col-md-12
-				.slider__news.owl-carousel
-					-for (var x = 0; x < 4; x++)
-						.slider__news-item(style="background-image: url(img/news-item.jpg)")
-							.item__description
-								.item__description-category Новости мира
-								.item__description-title= x 
-									| Название новости
-								.item__description-text Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an. Stet essent repudiandae est at, tollit dissentiet efficiantur eu has. Mea no dico sale, novum molestiae euripidis duo ei, nam laudem commodo dignissim ei.
-								.item__description-read_more
-									a.btn(href="#") Прочитать новость
-			.right-sidebar.column.col-3.col-md-12
-				div course
+section.topbar.row
+	.slider.col-xl-9.p-0
+		.slider__news.owl-carousel
+			-for (var x = 0; x < 4; x++)
+				.slider__news-item(style="background-image: url(img/news-item.jpg)")
+					.item__description
+						.item__description-category Новости мира
+						.item__description-title= x 
+							| Название новости
+						.item__description-text Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an. Stet essent repudiandae est at, tollit dissentiet efficiantur eu has. Mea no dico sale, novum molestiae euripidis duo ei, nam laudem commodo dignissim ei.
+						.item__description-read_more
+							a.btn(href="#") Прочитать новость
+	.right-sidebar.col-xl-3.p-0 course
 section.news-last
 	-for (var x = 0; x < 7; x++)
 		+news('01.11.2018', 'Новости мира', 'Название новости ' + x, 'Описание')
