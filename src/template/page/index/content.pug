@@ -7,16 +7,21 @@ section.topbar.row
 				.slider__news-item(style="background-image: url(img/news-item.jpg)")
 					.item__description
 						.item__description-category Новости мира
-						.item__description-title= x 
+						.item__description-title= x
 							| Название новости
 						.item__description-text Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an. Stet essent repudiandae est at, tollit dissentiet efficiantur eu has. Mea no dico sale, novum molestiae euripidis duo ei, nam laudem commodo dignissim ei.
 						.item__description-read_more
 							a.btn(href="#") Прочитать новость
 	.right-sidebar.col-xl-3.p-0 course
 section.news-last
-	-for (var x = 0; x < 7; x++)
-		+news('01.11.2018', 'Новости мира', 'Название новости ' + x, 'Описание')
-section.widgets
+	.section-header
+		.header-title Новости
+		.header-button
+			a(href="").btn Все новости...
+	.news-list
+		-for (var x = 0; x < 7; x++)
+			+news('01.11.2018', 'Новости мира', 'Название новости ' + x, 'Описание')
+section.widget 123
 section.news-widget
 	-for (var x = 0; x < 7; x++)
 		+news('01.11.2018', 'Финансы', 'Название новости ' + x, 'Описание')
@@ -26,4 +31,4 @@ section.video-widget
 	.video-list
 		.video-item
 			|123
-			//- img(src="", alt="", srcset="")	
+			//- img(src="", alt="", srcset="")
