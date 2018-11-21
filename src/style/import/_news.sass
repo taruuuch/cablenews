@@ -1,23 +1,16 @@
 .section-header
-	display: flex
 	margin-top: 15px
 	margin-bottom: 15px
 	.header-title
-		flex: 1 50%
 		font-size: 1.5rem
 		font-weight: 900
 		color: $cablenews-primary
-		&:after
-			content: ''
-			background-color: $cablenews-secondary
-			display: flex
-			width: 15%
-			height: 2px
+		&:before
+			content: '●'
+			color: $cablenews-secondary
+			display: inline-flex
+			margin-right: 10px
 	.header-button
-		flex: 1 50%
-		display: flex
-		justify-content: flex-end
-		align-self: center
 		.btn
 			padding-left: 35px
 			padding-right: 35px
@@ -25,25 +18,39 @@
 			font-weight: 700
 			font-size: .85rem
 			color: #ffffff
-			background-color: $cablenews-primary
+			background-color: $cablenews-secondary
 			border: 0
-			box-shadow: 0 3px 15px rgba($cablenews-primary, .5)
+			box-shadow: 0 3px 15px rgba($cablenews-secondary, .5)
 			transition: ease-in-out .2s all
+			&:hover
+				box-shadow: 0 3px 15px rgba($cablenews-secondary-hover, .5)
+				background-color: $cablenews-secondary-hover
 .news-list
 	display: flex
-	flex-wrap: nowrap
+	flex-wrap: wrap
 	.news
-		max-width: calc(100% / 7)
+		max-width: 265px
 		width: 100%
-		margin-right: 15px
+		margin: 0 auto 10px auto
 		padding: 10px
 		box-shadow: 0 0 5px rgba(#000000, .16)
-		&:last-child
+		transition: ease-in-out .5s all
+		&:first-child,
+		&:nth-child(6n)
+			margin-left: 0
+		&:last-child,
+		&:nth-child(5n)
 			margin-right: 0
+		&:hover
+			box-shadow: 0 0 15px rgba($cablenews-primary, .3)
+			transform: scale(1.05)
 		.news-image
 			position: relative
 			height: 250px
 			margin: -10px -10px 0 -10px
+			background-position: center
+			background-repeat: no-repeat
+			background-size: cover
 			&:after
 				content: ''
 				position: absolute
@@ -70,8 +77,10 @@
 				font-size: .75rem
 				font-weight: 700
 				color: $cablenews-primary
+				transition: ease-in-out .2s all
 				&:hover
-					text-decoration: underline
+					text-decoration: none
+					color: #865A0E
 		.news-category
 			font-size: .75rem
 			color: #cccccc

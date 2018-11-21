@@ -1,34 +1,64 @@
 include ../../mixins/_news.pug
 
-section.topbar.row
-	.slider.col-xl-9.p-0
-		.slider__news.owl-carousel
-			-for (var x = 0; x < 4; x++)
-				.slider__news-item(style="background-image: url(img/news-item.jpg)")
-					.item__description
-						.item__description-category Новости мира
-						.item__description-title= x
-							| Название новости
-						.item__description-text Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an. Stet essent repudiandae est at, tollit dissentiet efficiantur eu has. Mea no dico sale, novum molestiae euripidis duo ei, nam laudem commodo dignissim ei.
-						.item__description-read_more
-							a.btn(href="#") Прочитать новость
-	.right-sidebar.col-xl-3.p-0 course
-section.news-last
-	.section-header
-		.header-title Новости
-		.header-button
-			a(href="").btn Все новости...
-	.news-list
-		-for (var x = 0; x < 7; x++)
-			+news('01.11.2018', 'Новости мира', 'Название новости ' + x, 'Описание')
-section.widget 123
-section.news-widget
-	-for (var x = 0; x < 7; x++)
-		+news('01.11.2018', 'Финансы', 'Название новости ' + x, 'Описание')
-section.video-widget
-	.video-widget-title
-		span Title
-	.video-list
-		.video-item
-			|123
-			//- img(src="", alt="", srcset="")
+.row
+	main.col-lg-9.col-md-12
+		section.slider
+			.slider__news.owl-carousel
+				-for (var x = 1; x < 6; x++)
+					.slider__news-item(style="background-image: url(img/news/" + x + ".jpg)")
+						.item__description
+							.item__description-category Новости мира
+							.item__description-title= x
+								| Название новости
+							.item__description-text Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an. Stet essent repudiandae est at, tollit dissentiet efficiantur eu has. Mea no dico sale, novum molestiae euripidis duo ei, nam laudem commodo dignissim ei.
+							.item__description-read_more
+								a.btn(href="#") Прочитать новость
+		section.news-last.row
+			.section-header.col-12
+				.row
+					.header-title.col-6 Новости
+					.header-button.col-6.d-flex.justify-content-end.align-self-center
+						a(href="").btn Все новости...
+			.news-list.col-12
+				-for (var x = 1; x < 11; x++)
+					+news(x, '01.11.2018', 'Новости мира', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
+		section.rekt-cablenews
+			a(href="#").rekt-ad Рекламный блок
+		-for (var z = 0; z < 4; z++)
+			section.news-widget.row
+				.section-header.col-12
+					.row
+						.header-title.col-6= z
+							| Категория
+						.header-button.col-6.d-flex.justify-content-end.align-self-center
+							a(href="").btn Все новости...
+				.news-list.col-12
+					-for (var x = 1; x < 6; x++)
+						+news(x, '01.11.2018', 'Финансы', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
+	aside.col-lg-3.col-md-12
+		section.course-widget.row
+			.section-header.col-12.text-right
+				.header-title Курс валют
+			.widget-content.col-12 123
+		section.course-widget.row
+			.section-header.col-12.text-right
+				.header-title Курс валют
+			.widget-content.col-12 123
+		section.course-widget.row
+			.section-header.col-12.text-right
+				.header-title Курс валют
+			.widget-content.col-12 123
+		section.course-widget.row
+			.section-header.col-12.text-right
+				.header-title Курс валют
+			.widget-content.col-12 123
+		section.video-widget.row
+			.section-header.col-12.justify-content-end
+				.header-title Видео
+			.video-list.col-12
+				-for (var x = 1; x < 6; x++)
+					.video-item
+						|123
+						img(src="img/news/1.jpg", alt="", srcset="img/news/1.jpg", width="100%", height="150px")
+			.video-btn-all.col-12.d-flex.justify-content-center
+				a(href="").btn.btn-video Все новости...

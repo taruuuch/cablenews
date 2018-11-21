@@ -16,7 +16,7 @@
         responsive        : {
             0   : {
                 nav       : false
-            }, 
+            },
             840 : {
                 nav       : true
             }

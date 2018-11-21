@@ -1,6 +1,6 @@
-mixin news(date, category, title, description)
+mixin news(image, date, category, title, description)
 	.news
-		.news-image(style="background-image: url(img/news-item.jpg)")
+		.news-image(style="background-image: url(img/news/" + image + ".jpg)")
 			.news-date= date
 		.news-category= category
 		.news-title
