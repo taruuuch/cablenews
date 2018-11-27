@@ -36,29 +36,50 @@ include ../../mixins/_news.pug
 					-for (var x = 1; x < 6; x++)
 						+news(x, '01.11.2018', 'Финансы', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
 	aside.col-lg-3.col-md-12
-		section.course-widget.row
+		section.widget.subscribe-widget.row
+			.section-header.col-12.text-center
+				.header-title Подписаться на рассылку
+			.widget-content.col-12.text-center
+				form.subscribe-form
+					input.form-control(type="text", placeholder="Email...")
+					button.btn Подписаться
+		section.widget.row
 			.section-header.col-12.text-right
 				.header-title Курс валют
-			.widget-content.col-12 123
-		section.course-widget.row
+			.widget-content.col-12.course-content
+				.course-item.dollar
+					.course-icon(style="background-image:url('img/usa.svg')")
+					.course-item-content
+						.course-name Доллар
+						.course-value 0
+				.course-item.euro
+					.course-icon(style="background-image:url('img/union.svg')")
+					.course-item-content
+						.course-name Евро
+						.course-value 0
+				.course-item.ruble
+					.course-icon(style="background-image:url('img/russia.svg')")
+					.course-item-content
+						.course-name Рубль
+						.course-value 0
+		section.widget.row
 			.section-header.col-12.text-right
-				.header-title Курс валют
+				.header-title Прогноз погоды
 			.widget-content.col-12 123
-		section.course-widget.row
+		section.widget.row
 			.section-header.col-12.text-right
-				.header-title Курс валют
+				.header-title Курс ценных металов
 			.widget-content.col-12 123
-		section.course-widget.row
-			.section-header.col-12.text-right
-				.header-title Курс валют
-			.widget-content.col-12 123
-		section.video-widget.row
+		section.widget.row
+			.widget-content.col-12.text-center Рекламный блок
+		section.widget.row
 			.section-header.col-12.justify-content-end
 				.header-title Видео
 			.video-list.col-12
 				-for (var x = 1; x < 6; x++)
-					.video-item
-						|123
-						img(src="img/news/1.jpg", alt="", srcset="img/news/1.jpg", width="100%", height="150px")
+					.video-item(style="background-image: url('img/news/1.jpg')")
+						span.video-title
+							a(href="#")= x
+								|Название видео
 			.video-btn-all.col-12.d-flex.justify-content-center
 				a(href="").btn.btn-video Все новости...

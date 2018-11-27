@@ -145,6 +145,7 @@ function cssLibLoad() {
 	return gulp
 		.src([
 			'./node_modules/bootstrap/dist/css/bootstrap.min.css',
+			'./node_modules/bootstrap/dist/css/bootstrap.min.css.map',
 			'./node_modules/owl.carousel/dist/assets/owl.carousel.min.css'
 		])
 		.pipe(gulp.dest(path.build.csslib))
