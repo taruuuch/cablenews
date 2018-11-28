@@ -23,11 +23,6 @@
         }
     });
 
-    $('.open-search-form').click(function() {
-        $('.search-form').slideToggle().css('display', 'flex');
-        $(this).hide();
-	});
-
 	var res = new Date().toISOString().slice(0,10).replace(/-/g,"");
 
 	$.getJSON("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=EUR&date="+res+"&json")
