@@ -42,5 +42,4 @@
 	.done(function(data) {
 		$('.ruble .course-value').text(data[0].rate.toFixed(3));
 	});
-
 })();

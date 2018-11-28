@@ -22,8 +22,9 @@ include ../../mixins/_news.pug
 			.news-list.col-12
 				-for (var x = 1; x < 11; x++)
 					+news(x, '01.11.2018', 'Новости мира', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
-		section.rekt-cablenews
-			a(href="#").rekt-ad Рекламный блок
+		section.row
+			.col-12
+				a(href="#").best-block-inda-city Рекламный блок
 		-for (var z = 0; z < 4; z++)
 			section.news-widget.row
 				.section-header.col-12
@@ -71,7 +72,8 @@ include ../../mixins/_news.pug
 				.header-title Курс ценных металов
 			.widget-content.col-12 123
 		section.widget.row
-			.widget-content.col-12.text-center Рекламный блок
+			.col-12
+				a(href="#").best-block-inda-city Рекламный блок
 		section.widget.row
 			.section-header.col-12.justify-content-end
 				.header-title Видео
