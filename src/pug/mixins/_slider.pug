@@ -1,0 +1,7 @@
+mixin sliderItem(image, category, title, description)
+	.slider__news-item(style="background-image: url(img/news/" + image + ".jpg)")
+		.slider__news-item__description
+			.slider__news-item__description-category= category
+			.slider__news-item__description-title
+				a(href="#")= title
+			.slider__news-item_-description-text= description

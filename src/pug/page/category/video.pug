@@ -1,0 +1,24 @@
+section.category-video
+	.container
+		.section__breadcrumb
+			ul.section__breadcrumb-list
+				li
+					a(href='/') Главная
+				li
+					a(href='news/') Новости
+				li Название категории
+		.section__header.category-video__header Название категории
+		.category-video__content
+			-for (var x = 1; x <= 16; x++)
+				.video__list-item
+					.video__list-item__image(style="background-image: url('img/news/" + x + ".jpg')")
+						span.video-date 27.17.2018
+						span.video-title
+							a(href="#") Название видео
+		.section__pagination
+			.section__pagination-list
+				a(href="") &laquo;
+				a.active(href="") 1
+				a(href="") 2
+				a(href="") 3
+				a(href="") &raquo;

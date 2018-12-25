@@ -1,0 +1,10 @@
+mixin news(image, date, category, title, description)
+	.news
+		.news-image(style="background-image: url(img/news/" + image + ".jpg)")
+			.news-date= date
+		.news-category= category
+		.news-title
+			a(href="").news-title-link= title
+		.news-description= description
+		.news-read
+			a(href="") Читать...

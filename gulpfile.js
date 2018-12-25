@@ -25,18 +25,18 @@ const path = {
 		csslib: 'build/style/lib/'
 	},
 	src: {
-		pug  : 'src/template/*.pug',
-		js   : 'src/script/app.js',
-		style: 'src/style/**/*.{sass,scss}',
+		pug  : 'src/pug/*.pug',
+		js   : 'src/js/*.js',
+		style: 'src/sass/**/*.{sass,scss}',
 		image: 'src/img/**/*.{jpg,jpeg,png,gif,svg,ico}',
 		font : 'src/font/**/*'
 	},
 	watch: {
-		pug  : 'src/template/**/*.pug',
-		js   : 'src/script/app.js',
-		style: 'src/style/**/*.{sass,scss}',
-		image: 'src/img/**/*.{jpg,jpeg,png,gif,svg,ico}',
-		font : 'src/font/**/*'
+		pug   : 'src/pug/**/*.pug',
+		js    : 'src/js/app.js',
+		style : 'src/sass/**/*.{sass,scss}',
+		image : 'src/img/**/*.{jpg,jpeg,png,gif,svg,ico}',
+		font  : 'src/font/**/*'
 	}
 };
 
@@ -111,14 +111,14 @@ function pugLoad() {
 function imageLoad() {
 	return gulp
 		.src([path.src.image])
-		.pipe(imagemin({
-			optimizationLevel: 5,
-			progressive: true,
-			interlaced: true,
-			svgoPlugins: [{
-				removeViewBox: true
-			}]
-		}))
+		// .pipe(imagemin({
+		// 	optimizationLevel: 5,
+		// 	progressive: true,
+		// 	interlaced: true,
+		// 	svgoPlugins: [{
+		// 		removeViewBox: true
+		// 	}]
+		// }))
 		.pipe(gulp.dest(path.build.image))
 		.pipe(browserSync.stream());
 }
@@ -134,6 +134,7 @@ function jsLibLoad() {
 	return gulp
 		.src([
 			'./node_modules/jquery/dist/jquery.min.js',
+			'./node_modules/slicknav/dist/jquery.slicknav.min.js',
 			'./node_modules/owl.carousel/dist/owl.carousel.min.js'
 		])
 		.pipe(gulp.dest(path.build.jslib))
@@ -143,8 +144,8 @@ function jsLibLoad() {
 function cssLibLoad() {
 	return gulp
 		.src([
-			'./node_modules/bootstrap/dist/css/bootstrap.min.css',
-			'./node_modules/bootstrap/dist/css/bootstrap.min.css.map',
+			'./node_modules/normalize.css/normalize.css',
+			'./node_modules/slicknav/dist/slicknav.min.css',
 			'./node_modules/owl.carousel/dist/assets/owl.carousel.min.css'
 		])
 		.pipe(gulp.dest(path.build.csslib))

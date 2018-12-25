@@ -1,0 +1,22 @@
+include ../../mixins/_news.pug
+
+section.category-news
+	.container
+		.section__breadcrumb
+			ul.section__breadcrumb-list
+				li
+					a(href='/') Главная
+				li
+					a(href='news/') Новости
+				li Название категории
+		.section__header.category-news__header Название категории
+		.category-news__content
+			-for (var x = 1; x <= 16; x++)
+				+news(x, '01.11.2018', 'Новости мира', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
+		.section__pagination
+			.section__pagination-list
+				a(href="") &laquo;
+				a.active(href="") 1
+				a(href="") 2
+				a(href="") 3
+				a(href="") &raquo;
