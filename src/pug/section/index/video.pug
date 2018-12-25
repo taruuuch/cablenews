@@ -2,12 +2,17 @@ section.video
 	.section__header.video__header
 		a(href="#") Видео
 	.video__list
-		-for (var x = 1; x <= 4; x++)
-			.video__list-item
+		-for (var x = 1; x <= 3; x++)
+			.video__list-item(data-youtube-id="JQ4Kvw64COk")
 				.video__list-item__image(style="background-image: url('img/news/" + x + ".jpg')")
 					span.video-date 27.17.2018
 					span.video-title
 						a(href="#") Название видео
+		.video__list-item(data-youtube-id="z33j8V0rWhs")
+			.video__list-item__image(style="background-image: url('img/news/" + x + ".jpg')")
+				span.video-date 27.17.2018
+				span.video-title
+					a(href="#") Название видео
 	.category-news__adv
 		a(href="")
 			.best-block-inda-city Рекламный блок
