@@ -35,20 +35,6 @@
         }
 	);
 
-	// $('.news').hover(function () {
-	// 		$(this).animate({});
-	// 	}, function () {
-	// 		$(this).animate({});
-	// 	}
-	// );
-
-    // $('.navbar__search-control__button').click(function() {
-	// 	var search = $('.navbar__search-control__input').val();
-	// 	if (search) {
-	// 		window.location.href = '/site/search?search=' + search;
-	// 	}
-	// });
-
 	$.each($('.video__list-item'), function (indexInArray, valueOfElement) {
 		$(this).find('.video__list-item__image').attr('style', 'background-image: url("//img.youtube.com/vi/' + $(this).data('youtube-id') + '/maxresdefault.jpg")');
 	});
