@@ -1,11 +1,31 @@
-.popular-news,
+.popular-news
+	display: flex
+	flex-direction: column
+	&__list
+		display: flex
+		flex-wrap: wrap
+		flex-direction: row
+		& > div
+			width: 262px
+			margin-right: 15px
+			&:nth-child(3n)
+				margin-right: 0
+
 .category-news
 	display: flex
 	flex-direction: column
 	&__list
 		display: flex
 		flex-wrap: wrap
-		justify-content: space-between
+		flex-direction: row
+		& > div
+			width: 268.5px
+			margin-right: 15px
+			&:nth-child(4n)
+				margin-right: 0
+
+.popular-news,
+.category-news
 	&__adv
 		margin-top: 30px
 		margin-bottom: 30px
@@ -19,13 +39,12 @@
 		flex: 1 75%
 		max-width: 75%
 	.rightbar
+		margin-top: 56px
 		margin-left: 30px
 		flex: 1 25%
 		max-width: 25%
 
 .news
-	max-width: 260px
-	width: 100%
 	margin-bottom: 20px
 	padding: 10px
 	box-shadow: 4px 0 15px 0 rgba(#000000, .25)
@@ -106,6 +125,8 @@
 		text-transform: uppercase
 		color: $cablenews-primary
 		font-size: 1.1rem
+		& > a
+			color: $cablenews-primary
 	&__adv
 		margin-top: 15px
 		& > a > div
@@ -146,4 +167,9 @@
 	&__content
 		display: flex
 		flex-wrap: wrap
-		justify-content: space-between
+		flex-direction: row
+		& > div
+			width: 268.5px
+			margin-right: 15px
+			&:nth-child(4n)
+				margin-right: 0

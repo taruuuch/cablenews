@@ -35,21 +35,17 @@
         }
 	);
 
-	// $('.news').hover(function () {
-	// 		$(this).animate({});
-	// 	}, function () {
-	// 		$(this).animate({});
-	// 	}
-	// );
+	$('.tab__button-item').click(function() {
+		var tabId = $(this).data('tab');
+		$('.tab__content-item').fadeOut();
+		$('.tab__content-item').each(function() {
+			if ($(this).data('tab') == tabId) {
+				$(this).fadeIn();
+			}
+		});
+	});
 
-    // $('.navbar__search-control__button').click(function() {
-	// 	var search = $('.navbar__search-control__input').val();
-	// 	if (search) {
-	// 		window.location.href = '/site/search?search=' + search;
-	// 	}
-	// });
-
-	$.each($('.video__list-item'), function (indexInArray, valueOfElement) {
+	$.each($('.video__list-item'), function() {
 		$(this).find('.video__list-item__image').attr('style', 'background-image: url("//img.youtube.com/vi/' + $(this).data('youtube-id') + '/maxresdefault.jpg")');
 	});
 })();
