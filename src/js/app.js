@@ -1,4 +1,22 @@
+$(window).on('load', function() {
+	$('nav').animate({
+		opacity: '1'
+	}, 'slow');
+	$('header').animate({
+		opacity: '1'
+	}, 'slow');
+	$('main').animate({
+		opacity: '1'
+	}, 'slow');
+	$('footer').animate({
+		opacity: '1'
+	}, 'slow');
+	$('body').css('overflow', 'auto');
+});
+
 (function() {
+
+
     $('.slider__news').owlCarousel({
         loop              : true,
 		items             : 1,
@@ -37,10 +55,12 @@
 
 	$('.tab__button-item').click(function() {
 		var tabId = $(this).data('tab');
-		$('.tab__content-item').fadeOut();
+		$('.tab__button-item').removeClass('active');
+		$(this).addClass('active');
+		$('.tab__content-item').removeClass('active').fadeOut();
 		$('.tab__content-item').each(function() {
 			if ($(this).data('tab') == tabId) {
-				$(this).fadeIn();
+				$(this).addClass('active').fadeIn();
 			}
 		});
 	});

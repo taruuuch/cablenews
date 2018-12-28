@@ -1,11 +1,11 @@
 include aside/subscribe.pug
 section.widget.tab
 	.tab__button
-		.tab__button-item(data-tab="1") Курс
+		.tab__button-item.active(data-tab="1") Курс
 		.tab__button-item(data-tab="2") Погода
 		.tab__button-item(data-tab="3") Метали
 	.tab__content
-		.tab__content-item(data-tab="1")
+		.tab__content-item.active(data-tab="1")
 			include aside/course.pug
 		.tab__content-item(data-tab="2")
 			include aside/weather.pug
