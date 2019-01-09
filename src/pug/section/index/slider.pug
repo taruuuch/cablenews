@@ -1,6 +1,10 @@
 include ../../mixins/_slider.pug
 
 section.slider
-	.slider__news.owl-carousel
+	.slider__news
 		-for (var x = 1; x < 6; x++)
 			+sliderItem(x, 'Новости мира', x + 'Название новости', 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an. Stet essent repudiandae est at, tollit dissentiet efficiantur eu has. Mea no dico sale, novum molestiae euripidis duo ei, nam laudem commodo dignissim ei.')
+	.slider__news-prev
+		img(src="img/icon/arrow-left.svg", alt="")
+	.slider__news-next
+		img(src="img/icon/arrow-right.svg", alt="")

@@ -125,7 +125,10 @@ function imageLoad() {
 
 function fontLoad() {
 	return gulp
-		.src([path.src.font])
+		.src([
+			path.src.font,
+			'./node_modules/slick-carousel/slick/fonts/*'
+		])
 		.pipe(gulp.dest(path.build.font))
 		.pipe(browserSync.stream());
 };
@@ -134,8 +137,7 @@ function jsLibLoad() {
 	return gulp
 		.src([
 			'./node_modules/jquery/dist/jquery.min.js',
-			'./node_modules/slicknav/dist/jquery.slicknav.min.js',
-			'./node_modules/owl.carousel/dist/owl.carousel.min.js'
+			'./node_modules/slick-carousel/slick/slick.min.js'
 		])
 		.pipe(gulp.dest(path.build.jslib))
 		.pipe(browserSync.stream());
@@ -145,8 +147,8 @@ function cssLibLoad() {
 	return gulp
 		.src([
 			'./node_modules/normalize.css/normalize.css',
-			'./node_modules/slicknav/dist/slicknav.min.css',
-			'./node_modules/owl.carousel/dist/assets/owl.carousel.min.css'
+			'./node_modules/slick-carousel/slick/slick.css',
+			'./node_modules/slick-carousel/slick/slick-theme.css'
 		])
 		.pipe(gulp.dest(path.build.csslib))
 		.pipe(browserSync.stream());
