@@ -1,37 +1,23 @@
 $(window).on('load', function() {
-	$('nav').animate({
+	$('body').animate({
 		opacity: '1'
-	}, 'slow');
-	$('header').animate({
-		opacity: '1'
-	}, 'slow');
-	$('main').animate({
-		opacity: '1'
-	}, 'slow');
-	$('footer').animate({
-		opacity: '1'
-	}, 'slow');
-	$('body').css('overflow', 'auto');
+	}, 'slow')
+	.css('overflow', 'auto');
 });
 
 (function() {
 
 	$('.slider__news').slick({
-		infinite          : true,
-		arrows            : false,
-		speed             : 500,
-		fade              : true,
-		cssEase           : 'linear',
-		autoplay          : true,
-		autoplaySpeed     : 6000,
-		pauseOnHover	  : true,
-		prevArrow : $('.slider__news-prev'),
-		nextArrow : $('.slider__news-next'),
-	});
-
-	$('#menu').slicknav({
-		label: 'CableNews.com',
-		prependTo:'.navbar__mobile'
+		infinite     : true,
+		arrows       : true,
+		speed        : 500,
+		fade         : true,
+		cssEase      : 'linear',
+		autoplay     : true,
+		autoplaySpeed: 6000,
+		pauseOnHover : true,
+		prevArrow    : '<div class="slider__news-prev"><img src="img/icon/arrow-left.svg"/></div>',
+		nextArrow    : '<div class="slider__news-next"><img src="img/icon/arrow-right.svg"/></div>',
 	});
 
     $('.navbar__list-dropdown').hover(function () {
