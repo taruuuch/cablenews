@@ -1,3 +1,5 @@
+include ../../mixins/_adv.pug
+
 section.news-page
 	.container
 		.section__breadcrumb
@@ -9,10 +11,6 @@ section.news-page
 				li Название новости
 		include ../../section/news/image.pug
 		include ../../section/news/description.pug
-		.news-page__adv
-			a(href="#")
-				.best-block-inda-city(style="background-image: url('../img/news/1.jpg')") Рекламный блок
+		+adv()
 		include ../../section/news/comment.pug
-		.news-page__adv
-			a(href="#")
-				.best-block-inda-city(style="background-image: url('../img/news/1.jpg')") Рекламный блок
+		+adv()

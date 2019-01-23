@@ -1,3 +1,5 @@
+include ../../mixins/_adv.pug
+
 section.category-video
 	.container
 		.section__breadcrumb
@@ -22,6 +24,4 @@ section.category-video
 				a(href="") 2
 				a(href="") 3
 				a(href="") &raquo;
-		.category-video__adv
-			a(href="#")
-				.best-block-inda-city(style="background-image: url('../img/news/1.jpg')") Рекламный блок
+		+adv()

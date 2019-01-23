@@ -1,4 +1,5 @@
 include ../../mixins/_news.pug
+include ../../mixins/_adv.pug
 
 section.category-news
 	.container
@@ -20,6 +21,4 @@ section.category-news
 				a(href="") 2
 				a(href="") 3
 				a(href="") &raquo;
-		.category-news__adv
-			a(href="#")
-				.best-block-inda-city(style="background-image: url('../img/news/1.jpg')") Рекламный блок
+		+adv()
