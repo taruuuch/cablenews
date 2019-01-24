@@ -4,9 +4,8 @@
 	&__list
 		display: flex
 		flex-wrap: wrap
-		flex-direction: row
 		& > div
-			width: 262px
+			width: 29.8%
 			margin-right: 15px
 			&:nth-child(3n)
 				margin-right: 0
@@ -17,9 +16,8 @@
 	&__list
 		display: flex
 		flex-wrap: wrap
-		flex-direction: row
 		& > div
-			width: 268.5px
+			width: 22.3%
 			margin-right: 15px
 			&:nth-child(4n)
 				margin-right: 0
@@ -167,21 +165,32 @@
 	&__content
 		display: flex
 		flex-wrap: wrap
-		flex-direction: row
 		& > div
-			width: 268.5px
+			width: 22.3%
 			margin-right: 15px
 			&:nth-child(4n)
 				margin-right: 0
 
 @media (max-width: 1200px)
+	.header > .new-news
+		margin-top: 15px
+		margin-left: 0
 	.flex-container
 		flex-wrap: wrap
 		.popular-news
 			flex: 1 100%
 			max-width: 100%
+			order: 2
 		.rightbar
 			margin-top: 30px
 			margin-left: 0
 			flex: 1 100%
 			max-width: 100%
+			order: 1
+
+@media (max-width: 414px)
+	.popular-news__list > div,
+	.category-news__list > div,
+	.category-news__content > div
+		width: 100%
+		margin-right: 0

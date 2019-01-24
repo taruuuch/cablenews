@@ -18,6 +18,14 @@ $(window).on('load', function() {
 		pauseOnHover : true,
 		prevArrow    : '<div class="slider__news-prev"><img src="img/icon/arrow-left.svg"/></div>',
 		nextArrow    : '<div class="slider__news-next"><img src="img/icon/arrow-right.svg"/></div>',
+		responsive	 : [
+			{
+				breakpoint: 728,
+				settings: {
+					arrows : false,
+				}
+			}
+		]
 	});
 
     $('.navbar__list-dropdown').hover(function () {
@@ -56,5 +64,13 @@ $(window).on('load', function() {
 	$.getJSON("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=RUB&date="+res+"&json")
 	.done(function(data) {
 		$('.ruble .course-value').text(data[0].rate.toFixed(3));
+	});
+
+	$('.navbar__collapse').click(function (e) {
+		e.preventDefault();
+		if ($('.navbar__list').css('display') == 'none')
+			$('.navbar__list').slideDown();
+		else
+			$('.navbar__list').slideUp();
 	});
 })();
