@@ -1,0 +1,85 @@
+.video
+	&__list
+		display: flex
+		flex-wrap: wrap
+		flex-direction: row
+		& > div
+			margin-right: 20px
+			&:nth-child(4n)
+				margin-right: 0
+		&-item
+			width: 23.7%
+			&__image
+				position: relative
+				background-position: center
+				background-repeat: no-repeat
+				background-size: cover
+				height: 200px
+				width: 100%
+				margin-bottom: 15px
+				transition: ease-in-out .2s all
+				margin-right: 15px
+				&:last-child
+					margin-right: 0
+				&:after
+					position: absolute
+					z-index: 5
+					content: ''
+					background: $slider-background-after
+					width: 100%
+					height: 100%
+				.video-button
+					position: absolute
+					z-index: 6
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					& > a > img
+						width: 48px
+						opacity: .5
+						transition: .3s
+						&:hover
+							opacity: 1
+				.video-date
+					position: absolute
+					z-index: 6
+					top: 10px
+					right: 10px
+					color: #ffffff
+					font-weight: 500
+					font-size: .75rem
+					opacity: .6
+				.video-title
+					text-align: center
+					position: absolute
+					z-index: 6
+					bottom: 10px
+					left: 10px
+					right: 10px
+					a
+						color: #ffffff
+						font-weight: 700
+						transition: ease-in-out .2s all
+						&:hover
+							color: $cablenews-primary
+							text-decoration: none
+
+.category-video
+	&__content
+		display: flex
+		flex-wrap: wrap
+		flex-direction: row
+		& > div
+			margin-right: 20px
+			&:nth-child(4n)
+				margin-right: 0
+	&__adv
+		margin: 30px auto 15px auto
+		& > a > div
+			padding: 30px 0
+
+@media (max-width: 414px)
+	.video__list > div,
+	.category-video__content > div
+		width: 100%
+		margin-right: 0

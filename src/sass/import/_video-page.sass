@@ -1,0 +1,18 @@
+.video-page
+	&__iframe
+		display: flex
+		justify-content: center
+		& > iframe
+			width: 900px
+			height: 600px
+	&__info
+		margin-top: 30px
+	&__adv
+		margin-top: 30px
+		margin-bottom: 30px
+		& > a > div
+			padding: 30px
+
+@media (max-width: 414px)
+	.video-page__iframe > iframe
+		height: 250px

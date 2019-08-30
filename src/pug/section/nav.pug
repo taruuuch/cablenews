@@ -1,0 +1,46 @@
+nav.navbar
+	.container
+		.navbar__logotype
+			a(href="/")
+				img(src="img/logo.png", alt="")
+		.navbar__collapse
+			img(src="img/icon/menu.svg", alt="")
+		.navbar__list
+			.navbar__list-link
+				a(href="/") Главная
+			.navbar__list-link.navbar__list-dropdown
+				a(href="#") Новости
+				.navbar__list-dropdown__list
+					.navbar__list-dropdown__list-link
+						a(href="#") Украина
+					.navbar__list-dropdown__list-link
+						a(href="#") Мир
+			.navbar__list-link.navbar__list-dropdown
+				a(href="#") Промышленность
+				.navbar__list-dropdown__list
+					.navbar__list-dropdown__list-link
+						a(href="#") Производство кабеля
+					.navbar__list-dropdown__list-link
+						a(href="#") Угольная промышленность
+					.navbar__list-dropdown__list-link
+						a(href="#") Нефтегазодобыча
+					.navbar__list-dropdown__list-link
+						a(href="#") Машиностроение
+					.navbar__list-dropdown__list-link
+						a(href="#") Химическая промышленность
+					.navbar__list-dropdown__list-link
+						a(href="#") Пищевая промышленность
+			.navbar__list-link
+				a(href="#") Зеленая энергия
+			.navbar__list-link
+				a(href="#") Финансы
+			.navbar__list-link
+				a(href="#") Выставка
+			.navbar__list-link
+				a(href="#") Видео
+		.navbar__search
+			form(action="")
+				.navbar__search-control
+					input.navbar__search-control__input(type="text", placeholder="Поиск...")
+					button.navbar__search-control__button(type="submit")
+						img(src="img/icon/search.svg", alt="")

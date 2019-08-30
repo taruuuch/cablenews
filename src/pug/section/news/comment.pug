@@ -1,0 +1,16 @@
+.news-page__comment
+	.news-page__comment-header Коментарии (0)
+	.news-page__comment-form
+		form(action="")
+			input(type="text", id="name" ,placeholder="Имя...")
+			input(type="text", id="email" ,placeholder="Email...")
+			textarea(name="text", id="text", placeholder="Коментарий...")
+			.news-page__comment-form__btn
+				button(type="sumbit") Отправить
+	.news-page__comment-list
+		-for (var x = 1; x <= 10; x++)
+			.news-page__comment-list__item
+				.news-page__comment-list__item-author
+					span.author Kapitonenko Serhii
+					span.date 23:59 24.12.2018
+				.news-page__comment-list__item-text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus quisquam aliquam eligendi corporis accusamus, dolorum eum consequatur nisi, ipsam dolor unde. Porro saepe similique voluptas suscipit voluptates, esse eos ducimus!
