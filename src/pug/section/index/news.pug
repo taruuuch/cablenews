@@ -1,0 +1,16 @@
+include ../../mixins/_news.pug
+include ../../mixins/_adv.pug
+
++adv()
+
+.flex-container
+	section.popular-news
+		.section__header.popular-news__header
+			a(href="#") Популярные новости
+		.popular-news__list
+			-for (var x = 1; x <= 6; x++)
+				+news(x, '01.11.2018', 'Новости мира', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
+		+adv()
+
+	aside.rightbar
+		include ../../section/index/rightbar.pug

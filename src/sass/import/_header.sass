@@ -1,0 +1,20 @@
+.header
+	display: flex
+	& > .slider
+		flex: 1 65%
+		max-width: 65%
+	& >  .new-news
+		flex: 1 35%
+		max-width: 35%
+		margin-left: 15px
+
+@media (max-width: 1200px)
+	.header
+		display: flex
+		flex-wrap: wrap
+		& > .slider
+			flex: 1 100%
+			max-width: 100%
+		& >  .new-news
+			flex: 1 100%
+			max-width: 100%

@@ -1,0 +1,16 @@
+include ../../mixins/_adv.pug
+
+section.news-page
+	.container
+		.section__breadcrumb
+			ul.section__breadcrumb-list
+				li
+					a(href='/') Главная
+				li
+					a(href='news/') Название категории
+				li Название новости
+		include ../../section/news/image.pug
+		include ../../section/news/description.pug
+		+adv()
+		include ../../section/news/comment.pug
+		+adv()

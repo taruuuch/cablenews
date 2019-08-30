@@ -1,0 +1,9 @@
+-for (var z = 1; z <= 5; z++)
+	section.category-news
+		.section__header.category-news__header
+			a(href="#") Категория
+				|
+				#{z}
+		.category-news__list
+			-for (var x = 1; x <= 4; x++)
+				+news(x, '01.11.2018', 'Финансы', 'Название новости ' + x, 'Reque mandamus ne quo. Et salutandi voluptatum vel, suscipit laboramus mel an.')
